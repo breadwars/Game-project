@@ -9,7 +9,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 40px;
 }
 
 .dice-box {
@@ -43,7 +43,7 @@ body {
 }
 
 .die-info {
-  margin-top: 12px;
+  margin-top: 14px;
   font-size: 15px;
   font-weight: bold;
   color: #374151;
@@ -100,12 +100,24 @@ body {
     inset -8px -8px 12px rgba(0, 0, 0, 0.08);
 }
 
-.front { transform: translateZ(44px); }
-.back { transform: rotateY(180deg) translateZ(44px); }
-.right { transform: rotateY(90deg) translateZ(44px); }
-.left { transform: rotateY(-90deg) translateZ(44px); }
-.top { transform: rotateX(90deg) translateZ(44px); }
-.bottom { transform: rotateX(-90deg) translateZ(44px); }
+.front {
+  transform: translateZ(44px);
+}
+.back {
+  transform: rotateY(180deg) translateZ(44px);
+}
+.right {
+  transform: rotateY(90deg) translateZ(44px);
+}
+.left {
+  transform: rotateY(-90deg) translateZ(44px);
+}
+.top {
+  transform: rotateX(90deg) translateZ(44px);
+}
+.bottom {
+  transform: rotateX(-90deg) translateZ(44px);
+}
 
 .pip-face {
   position: relative;
@@ -119,16 +131,37 @@ body {
   background: #111827;
   border-radius: 50%;
   position: absolute;
-  box-shadow: inset 1px 1px 2px rgba(255,255,255,0.12);
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.12);
 }
 
-.top-left { top: 16px; left: 16px; }
-.top-right { top: 16px; right: 16px; }
-.middle-left { top: 38px; left: 16px; }
-.middle-right { top: 38px; right: 16px; }
-.center { top: 38px; left: 38px; }
-.bottom-left { bottom: 16px; left: 16px; }
-.bottom-right { bottom: 16px; right: 16px; }
+.top-left {
+  top: 16px;
+  left: 16px;
+}
+.top-right {
+  top: 16px;
+  right: 16px;
+}
+.middle-left {
+  top: 38px;
+  left: 16px;
+}
+.middle-right {
+  top: 38px;
+  right: 16px;
+}
+.center {
+  top: 38px;
+  left: 38px;
+}
+.bottom-left {
+  bottom: 16px;
+  left: 16px;
+}
+.bottom-right {
+  bottom: 16px;
+  right: 16px;
+}
 
 .total {
   font-size: 28px;
@@ -151,7 +184,10 @@ body {
   font-size: 17px;
   border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.1s ease, background 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.1s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .btn:hover {

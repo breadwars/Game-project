@@ -1,19 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 
-<<<<<<< HEAD
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-        <p>Hello world</p>
-    </>
-  )
-=======
 function getRandomRoll(sides) {
   return Math.floor(Math.random() * sides) + 1;
->>>>>>> 6ea9766 (new add dice feature)
 }
 
 function pipLayout(value) {
@@ -95,6 +84,10 @@ export default function App() {
   const [total, setTotal] = useState(0);
   const [shopOpen, setShopOpen] = useState(false);
 
+  function addDie() {
+    setDice((prev) => [...prev, { value: 1, sides: 6, rolling: false }]);
+  }
+
   function rollDice() {
     setDice((prev) => prev.map((die) => ({ ...die, rolling: true })));
 
@@ -111,10 +104,6 @@ export default function App() {
         return rolled;
       });
     }, 1000);
-  }
-
-  function addDie() {
-    setDice((prev) => [...prev, { value: 1, sides: 6, rolling: false }]);
   }
 
   return (
@@ -139,7 +128,10 @@ export default function App() {
           <button className="btn" onClick={rollDice}>
             Roll Dice
           </button>
-          <button className="btn shop-toggle" onClick={() => setShopOpen(!shopOpen)}>
+          <button
+            className="btn shop-toggle"
+            onClick={() => setShopOpen(!shopOpen)}
+          >
             {shopOpen ? "Close Shop" : "Shop"}
           </button>
         </div>
