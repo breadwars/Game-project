@@ -105,42 +105,30 @@ export default function Dice({ type, onGameOver }) {
     }
 
     setDice((prev) => prev.map((die) => ({ ...die, rolling: true })));
-    
 
     setTimeout(() => {
-      let rolled;
-
-      
-      setDice((prev) => {   
-        rolled = prev.map((die) => ({
-          ...die,
-          value: getRandomRoll(die.sides),
-          rolling: false,
-        }));
-        console.log(rolled)
-        return rolled;
-      });
+      const rolled = dice.map((die) => ({
+        ...die,
+        value: getRandomRoll(die.sides),
+        rolling: false,
+      }));
 
       const sum = rolled.reduce((acc, die) => acc + die.value, 0);
       const nextScore = score + sum;
-      setScore(nextScore)
+      const nextRollsLeft = rollsLeft - 1;
 
-      setRollsLeft((prevRollsLeft) => {
-            const nextRollsLeft = prevRollsLeft - 1;
-           
+      setDice(rolled);
+      setScore(nextScore);
+      setRollsLeft(nextRollsLeft);
 
-            if (nextRollsLeft === 0) {
-              if (nextScore >= goal) {
-                advanceRound(nextScore);
-              } else {
-                endGame();
-              }
-            }
-
-            return nextRollsLeft;
-          });
+      if (nextRollsLeft === 0) {
+        if (nextScore >= goal) {
+          advanceRound(nextScore);
+        } else {
+          endGame();
+        }
+      }
     }, 1000);
-    
   }
 
   return (
